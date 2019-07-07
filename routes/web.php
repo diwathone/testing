@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Admin Area
 Route::get(config('backend.backend_link'), 'AdministratorController@index');
 
- Route::get('/login/admin', 'Auth\AdminLoginController@showAdminLoginForm')->name("login.admin");
+Route::get('/login/admin', 'Auth\AdminLoginController@showAdminLoginForm')->name("login.admin");
  
 Route::post('/login/admin', 'Auth\AdminLoginController@adminLogin')->name("admin.login");
 
