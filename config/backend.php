@@ -1,4 +1,5 @@
 <?php
 return [
-    'backend_link' => 'administrator'
+    'backend_link' => 'administrator',
+    'manager_link' => 'manager'
 ];

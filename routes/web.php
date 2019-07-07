@@ -28,3 +28,26 @@ Route::get('/login/admin', 'Auth\AdminLoginController@showAdminLoginForm')->name
 Route::post('/login/admin', 'Auth\AdminLoginController@adminLogin')->name("admin.login");
 
 Route::get("logout/admin", 'AdminLoginController@logout');
+
+
+/* Manager Create */
+
+Route::group(['prefix' => config("backend.backend_link"),  'middleware' => 'auth:web,admin'], function()
+{
+     Route::get("manager/data", "AdminManagerController@anyData")->name("manager.data");
+    Route::resource('manager', 'AdminManagerController');
+   
+});
+
+// Route::prefix('admin')->group(function () {
+//     Route::resource('manager', 'AdminManagerController');
+// });
+
+// Manager Area
+Route::get(config('backend.manager_link'), 'AdministratorController@index');
+
+ Route::get('/login/manager', 'Auth\ManagerLoginController@showManagerLoginForm')->name("login.manager");
+ 
+Route::post('/login/manager', 'Auth\ManagerLoginController@managerLogin')->name("manager.login");
+
+Route::get("logout/manager", 'ManagerLoginController@logout');
